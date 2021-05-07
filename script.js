@@ -33,5 +33,7 @@ function getColorValue() {
 getColorValue();
 
 function resetGame() {
-  const resetBtn = document.getElementById('')
+  const resetBtn = document.getElementById('reset-game');
 }
+
+resetGame();
