@@ -10,11 +10,11 @@ function random255() {
 function generateBalls() {
   const winner = Math.floor(Math.random() * 6);
   answer.innerHTML = 'Escolha uma cor';
-  for (let index = 0; index < balls.length; index += 1){
+  for (let index = 0; index < balls.length; index += 1) {
     const randomColor = `rgb(${random255()}, ${random255()}, ${random255()})`;
     const ball = balls[index];
     ball.style.backgroundColor = randomColor;
-    if (index === winner){
+    if (index === winner) {
       document.querySelector('#rgb-color').innerHTML = `Qual dessas cores é: ${randomColor}?`;
       ball.classList.add('winner');
     } else {
@@ -25,7 +25,7 @@ function generateBalls() {
 
 function clicker(eventObject) {
   const targetElement = eventObject.target;
-    if (targetElement.classList.contains('winner')) {
+  if (targetElement.classList.contains('winner')) {
     answer.innerHTML = 'Acertou!';
     points += 3;
   } else if (targetElement.classList.contains('ball')) {
@@ -33,7 +33,6 @@ function clicker(eventObject) {
   }
   updateScore();
 }
-
 
 function updateScore() {
   document.querySelector('#score').innerHTML = ('Placar: ' + points)
