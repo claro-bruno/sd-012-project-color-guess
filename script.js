@@ -1,6 +1,7 @@
 const bolasCores = document.querySelectorAll('.ball');
 const corDaResposta = document.querySelector('#rgb-color');
 const paragrafoResposta = document.querySelector('#answer');
+const botaoReset = document.querySelector('#reset-game');
 
 function gerarCoresAleatorias() {
   const red = Math.ceil(Math.random() * 255);
@@ -25,8 +26,12 @@ function clicarNaResposta(element) {
 }
 
 function recarregarPagina() {
-
+  botaoReset.addEventListener('click', () => {
+    location.reload();
+  });
 }
+
+recarregarPagina();
 
 window.onload = () => {
   for (let index = 0; index < bolasCores.length; index += 1) {
