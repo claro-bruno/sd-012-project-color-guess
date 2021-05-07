@@ -8,19 +8,26 @@
   <title>Projeto Adivinhe a Cor</title>
 </head>
 <body>
-  <h1 id="title">Adivinhe a cor!</h1>
-  <p id="rgb-color"></p>
-  <p id="score"></p>
-  <div id="color-container">
-    <div class="ball"></div>
-    <div class="ball"></div>
-    <div class="ball"></div>
-    <div class="ball"></div>
-    <div class="ball"></div>
-    <div class="ball"></div>
-  </div>
-  <p id="answer">Escolha uma cor</p>
-  <button id="reset-game">Resetar o jogo</button>
+  <main id="content-container">
+    <h1 id="title">Adivinhe a cor!</h1>
+    <p>Qual das cores abaixo representa o código RGB a seguir?</p>
+    <p id="rgb-color"></p>
+    <p>Placar:</p>
+    <p id="score"></p>
+    <div id="color-container">
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+      <div class="ball"></div>
+    </div>
+    <p id="answer">Escolha uma cor</p>
+    <div id="botoes">
+      <button id="reset-game" class="button">Resetar o jogo</button>
+      <button id="reset-score" class="button">Resetar o placar</button>
+    </div>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>

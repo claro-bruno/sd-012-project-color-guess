@@ -3,6 +3,7 @@ const corDaResposta = document.querySelector('#rgb-color');
 const paragrafoResposta = document.querySelector('#answer');
 const paragrafoPlacar = document.querySelector('#score');
 const botaoReset = document.querySelector('#reset-game');
+const botaoResetscore = document.querySelector('#reset-score');
 
 function gerarCoresAleatorias() {
   const red = Math.ceil(Math.random() * 255);
@@ -46,6 +47,15 @@ function recarregarPagina() {
 }
 
 recarregarPagina();
+
+function resetarPlacar() {
+  botaoResetscore.addEventListener('click', () => {
+    localStorage.setItem('placar', 0);
+    paragrafoPlacar.innerText = localStorage.getItem('placar');
+  });
+}
+
+resetarPlacar();
 
 window.onload = () => {
   for (let index = 0; index < bolasCores.length; index += 1) {
