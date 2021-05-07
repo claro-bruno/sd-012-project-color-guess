@@ -1,7 +1,11 @@
 body {
-  background-color: rgb(50 , 50 , 50);
+  background-color: rgb(50, 50, 50);
   opacity: 0.75;
- }
+}
+
+#title {
+  margin: 0;
+}
 
 #content-container {
   text-align: center;
@@ -27,13 +31,17 @@ body {
   border: 1px dashed black;
 }
 
+#botoes1 {
+  margin-bottom: 10px;
+}
+
 .button {
-  background-color: rgb(5 , 56 , 107);
+  background-color: rgb(5, 56, 107);
   color: white;
   border-radius: 10px;
   border: 1px solid black;
   height: 30px;
-  width: 115px;
+  width: 150px;
 }
 
 .button:hover {

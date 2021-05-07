@@ -4,6 +4,9 @@ const paragrafoResposta = document.querySelector('#answer');
 const paragrafoPlacar = document.querySelector('#score');
 const botaoReset = document.querySelector('#reset-game');
 const botaoResetscore = document.querySelector('#reset-score');
+// const botaoAumentaDificuldade = document.querySelector('#dif-up');
+// const botaoDiminuiDificuldade = document.querySelector('#dif-down');
+// const containerCores = document.querySelector('#color-container');
 
 function gerarCoresAleatorias() {
   const red = Math.ceil(Math.random() * 255);
@@ -56,6 +59,24 @@ function resetarPlacar() {
 }
 
 resetarPlacar();
+
+// function aumentaDificuldade() {
+//   botaoAumentaDificuldade.addEventListener('click', () => {
+//     const novaDiv = document.createElement('div');
+//     containerCores.appendChild(novaDiv);
+//     const divs = document.querySelectorAll('#color-container div');
+//     for (index = 0; index < 6; index += 1){
+//       const novaDivParaCor = document.createElement('div');
+//       novaDivParaCor.classList.add('ball');
+//       novaDivParaCor.style.backgroundColor = gerarCoresAleatorias();
+//       clicarNaResposta(novaDivParaCor);
+//       divs[divs.length - 1].appendChild(novaDivParaCor);
+//     }
+//     escolherResposta();
+//   });
+// }
+
+// aumentaDificuldade();
 
 window.onload = () => {
   for (let index = 0; index < bolasCores.length; index += 1) {
