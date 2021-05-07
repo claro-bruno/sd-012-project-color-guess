@@ -1,11 +1,38 @@
 body {
   background-image: linear-gradient(to right, #ffd89b  , #19547b);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #title {
   font-family: 'Courier New', Courier, monospace;
   text-align: center;
-  padding-top: 40px;
-  font-size: 3rem;
+  padding-top: 30px;
+  font-size: 3.5rem;
   font-weight: 700;
+  text-decoration: underline;
+}
+
+#rgb-color {
+  text-align: center;
+  font-size: 35px;
+  padding: 30px;
+}
+
+#main-ball {
+  display: flex;
+  flex-direction: row;
+  padding-top: 30px;
+}
+
+.ball {
+  width: 130px;
+  height: 130px;
+  background-color: green;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 10px;
+  border: 1px solid black;
 }
