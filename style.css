@@ -1,5 +1,5 @@
 body {
-  background-image: linear-gradient(to right, #ffd89b  , #19547b);
+  background-image: linear-gradient(to right, #ffd89b, #19547b);
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -7,7 +7,7 @@ body {
 }
 
 #title {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   text-align: center;
   padding-top: 30px;
   font-size: 3.5rem;
@@ -43,7 +43,7 @@ body {
 }
 
 #reset-game {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   background-color: transparent;
   cursor: pointer;
   border: outset 5px;
