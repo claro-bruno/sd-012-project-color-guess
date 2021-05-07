@@ -30,9 +30,27 @@ body {
 .ball {
   width: 130px;
   height: 130px;
-  background-color: green;
   border-radius: 50%;
   cursor: pointer;
   margin: 0 10px;
   border: 1px solid black;
+  color: transparent;
+}
+
+#answer {
+  padding-top: 30px;
+  font-size: 30px;
+}
+
+#reset-game {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: transparent;
+  cursor: pointer;
+  border: outset 5px;
+  height: 50px;
+  width: 150px;
+}
+
+#reset-game:active {
+  transform: scale(0.98);
 }
