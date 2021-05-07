@@ -1,5 +1,6 @@
 const bolasCores = document.querySelectorAll('.ball');
 const corDaResposta = document.querySelector('#rgb-color');
+const paragrafoResposta = document.querySelector('#answer');
 
 function gerarCoresAleatorias() {
   const red = Math.ceil(Math.random() * 255);
@@ -16,11 +17,21 @@ function escolherResposta() {
   corDaResposta.innerText= `${corSemRGB}`;
 }
 
+function clicarNaResposta(element) {
+  element.addEventListener('click', (event) => {
+    if (event.target.style.backgroundColor === ('rgb' + corDaResposta.innerText)) paragrafoResposta.innerText = 'Acertou!';
+    else paragrafoResposta.innerText = 'Errou! Tente novamente!';
+  });
+}
 
+function recarregarPagina() {
+
+}
 
 window.onload = () => {
   for (let index = 0; index < bolasCores.length; index += 1) {
     bolasCores[index].style.backgroundColor = gerarCoresAleatorias();
+    clicarNaResposta(bolasCores[index]);
   }
   escolherResposta();
 }
