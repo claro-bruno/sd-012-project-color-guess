@@ -34,6 +34,9 @@ getColorValue();
 
 function resetGame() {
   const resetBtn = document.getElementById('reset-game');
+  resetBtn.addEventListener('click', () => {
+    location.reload();
+  })
 }
 
 resetGame();
