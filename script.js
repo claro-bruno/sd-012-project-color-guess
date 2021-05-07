@@ -23,6 +23,10 @@ function generateBalls() {
   }
 }
 
+function updateScore() {
+  document.querySelector('#score').innerHTML = (`'Placar: ${points}`);
+}
+
 function clicker(eventObject) {
   const targetElement = eventObject.target;
   if (targetElement.classList.contains('winner')) {
@@ -32,10 +36,6 @@ function clicker(eventObject) {
     answer.innerHTML = 'Errou! Tente novamente!';
   }
   updateScore();
-}
-
-function updateScore() {
-  document.querySelector('#score').innerHTML = ('Placar: ' + points)
 }
 
 document.addEventListener('click', clicker);
