@@ -31,12 +31,14 @@ function clicker(eventObject) {
   } else if (targetElement.classList.contains('ball')) {
     answer.innerHTML = 'Errou! Tente novamente!';
   }
+  updateScore();
 }
 
 
-function reset() {
-  generateBalls();
+function updateScore() {
+  document.querySelector('#score').innerHTML = ('Placar: ' + points)
 }
 
 document.addEventListener('click', clicker);
+updateScore();
 generateBalls();
