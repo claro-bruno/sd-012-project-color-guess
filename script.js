@@ -1,6 +1,7 @@
 const bolasCores = document.querySelectorAll('.ball');
 const corDaResposta = document.querySelector('#rgb-color');
 const paragrafoResposta = document.querySelector('#answer');
+const paragrafoPlacar = document.querySelector('#score');
 const botaoReset = document.querySelector('#reset-game');
 
 function gerarCoresAleatorias() {
@@ -20,8 +21,13 @@ function escolherResposta() {
 
 function clicarNaResposta(element) {
   element.addEventListener('click', (event) => {
-    if (event.target.style.backgroundColor === ('rgb' + corDaResposta.innerText)) paragrafoResposta.innerText = 'Acertou!';
-    else paragrafoResposta.innerText = 'Errou! Tente novamente!';
+    if (event.target.style.backgroundColor === ('rgb' + corDaResposta.innerText)) {
+      paragrafoResposta.innerText = 'Acertou!';
+      let sum=0;
+      if (localStorage.getItem('placar')!== null) sum = parseInt(localStorage.getItem('placar'));
+      gerarPlacar(sum);
+      paragrafoPlacar.innerText = localStorage.getItem('placar');
+    } else paragrafoResposta.innerText = 'Errou! Tente novamente!';
   });
 }
 
@@ -33,10 +39,19 @@ function recarregarPagina() {
 
 recarregarPagina();
 
+function gerarPlacar(placar) {
+  placar += 3;
+  localStorage.setItem('placar', placar);
+}
+
 window.onload = () => {
   for (let index = 0; index < bolasCores.length; index += 1) {
     bolasCores[index].style.backgroundColor = gerarCoresAleatorias();
     clicarNaResposta(bolasCores[index]);
   }
   escolherResposta();
+
+  paragrafoPlacar.innerText = 0;
+  if (localStorage.getItem('placar')!== null) paragrafoPlacar.innerText = localStorage.getItem('placar');
+  
 }
