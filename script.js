@@ -11,7 +11,7 @@ textColor.id = 'rgb-color';
 content.appendChild(textColor);
 
 function randomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
 function generateRGB() {
@@ -60,5 +60,19 @@ function renderBallColors(qtd) {
 
   textColor.innerHTML = arrayRGB[colorIndex];
 }
+
+const btnReset = document.createElement('button');
+btnReset.id = 'reset-game';
+btnReset.innerHTML = 'Resetar Jogo/Cores';
+
+function resetGame() {
+  colorContainer.innerHTML = '';
+  resultContainer.innerHTML = 'Escolha uma cor';
+  renderBallColors(6);
+}
+
+btnReset.addEventListener('click', resetGame);
+
+content.appendChild(btnReset);
 
 renderBallColors(6);
