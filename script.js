@@ -11,7 +11,7 @@ textColor.id = 'rgb-color';
 content.appendChild(textColor);
 
 function randomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min) + min);
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 function generateRGB() {
@@ -22,4 +22,27 @@ function generateRGB() {
   return `(${red}, ${green}, ${blue})`;
 }
 
-textColor.innerHTML = generateRGB();
+const colorContainer = document.createElement('div');
+colorContainer.className = 'color-container';
+content.appendChild(colorContainer);
+
+function generateBallColor() {
+  const ballColor = document.createElement('div');
+  ballColor.className = 'ball';
+  ballColor.style.backgroundColor = `rgb${generateRGB()}`;
+  return ballColor;
+}
+
+function renderBallColors(qtd) {
+  const arrayRGB = [];
+  const colorIndex = randomNumber(0, qtd);
+  for (let index = 0; index < qtd; index += 1) {
+    const ballColor = generateBallColor();
+    const color = ballColor.style.backgroundColor.replace(/rgb/g, '');
+    arrayRGB.push(color);
+    colorContainer.appendChild(ballColor);
+  }
+  textColor.innerHTML = arrayRGB[colorIndex];
+}
+
+renderBallColors(6);
