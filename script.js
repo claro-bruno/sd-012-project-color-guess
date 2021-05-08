@@ -26,12 +26,18 @@ function paintRandomColor() {
 }
 paintRandomColor();
 
+function scoreCount() {
+  const score = document.querySelector('#score');
+  score.innerHTML = parseInt(score.innerHTML, 10) + 3;
+}
+
 function verifyAnswer() {
   const answer = document.querySelector('#answer');
   const rgbColor = document.querySelector('#rgb-color');
   const selectBall = document.querySelector('.selected');
   if (selectBall.style.backgroundColor === `rgb${rgbColor.innerHTML}`) {
     answer.innerHTML = 'Acertou!';
+    scoreCount();
   } else {
     answer.innerHTML = 'Errou! Tente novamente!';
   }
