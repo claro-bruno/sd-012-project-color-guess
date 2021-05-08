@@ -1,13 +1,27 @@
 function createRandomColor() {
-  const r = parseInt(Math.random() * 255);
-  const g = parseInt(Math.random() * 255);
-  const b = parseInt(Math.random() * 255);
+  const r = parseInt((Math.random() * 256), 10);
+  const g = parseInt((Math.random() * 256), 10);
+  const b = parseInt((Math.random() * 256), 10);
   const rgb = `(${r}, ${g}, ${b})`;
   return rgb;
 }
 
-function colorRamdom() {
+function colorRamdomText() {
   const rgbColor = document.querySelector('#rgb-color');
   rgbColor.innerHTML = createRandomColor();
 }
-colorRamdom();
+colorRamdomText();
+
+function paintRandomColor() {
+  const ball = document.querySelectorAll('.ball');
+  const rgbColor = document.querySelector('#rgb-color');
+  const randomPosition = parseInt((Math.random() * 6), 10);
+  for (let index = 0; index < ball.length; index += 1) {
+    if (randomPosition === index) {
+      ball[index].style.backgroundColor = `rgb${rgbColor.innerHTML}`;
+    } else {
+      ball[index].style.backgroundColor = `rgb${createRandomColor()}`;
+    }
+  }
+}
+paintRandomColor();
