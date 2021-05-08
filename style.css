@@ -7,7 +7,7 @@ body {
   text-align: center;
   background-image: linear-gradient(to bottom right, rgb(47, 193, 140), green);
   background-repeat: no-repeat;
-  font-family: 'Press Start 2P';
+  font-family: 'Press Start 2P', Helvetica, sans-serif;
 }
 
 h1 {
