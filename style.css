@@ -5,3 +5,12 @@
   border-radius: 50%;
   display: inline-block;
 }
+
+.answer-ball {
+  border: 2px solid blue;
+}
+
+#answer {
+  font-size: 20px;
+  font-weight: 700;
+}
