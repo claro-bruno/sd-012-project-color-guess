@@ -26,6 +26,17 @@ function paintRandomColor() {
 }
 paintRandomColor();
 
+function verifyAnswer() {
+  const answer = document.querySelector('#answer');
+  const rgbColor = document.querySelector('#rgb-color');
+  const selectBall = document.querySelector('.selected');
+  if (selectBall.style.backgroundColor === `rgb${rgbColor.innerHTML}`) {
+    answer.innerHTML = 'Acertou!';
+  } else {
+    answer.innerHTML = 'Errou! Tente novamente!';
+  }
+}
+
 function selectedBall() {
   const ball = document.querySelectorAll('.ball');
   for (let index = 0; index < ball.length; index += 1) {
@@ -41,13 +52,17 @@ function selectedBall() {
 }
 selectedBall();
 
-function verifyAnswer() {
-  const answer = document.querySelector('#answer');
-  const rgbColor = document.querySelector('#rgb-color');
-  const selectBall = document.querySelector('.selected');
-  if (selectBall.style.backgroundColor === `rgb${rgbColor.innerHTML}`) {
-    answer.innerHTML = 'Acertou!';
-  } else {
-    answer.innerHTML = 'Errou! Tente novamente!';
-  }
+function resetGame() {
+  const resetButton = document.querySelector('#reset-game');
+  resetButton.addEventListener('click', () => {
+    const answer = document.querySelector('#answer');
+    const selectBall = document.querySelector('.selected');
+    colorRamdomText();
+    paintRandomColor();
+    answer.innerHTML = 'Escolha uma cor';
+    if (selectBall !== null) {
+      selectBall.classList.remove('selected');
+    }
+  });
 }
+resetGame();
