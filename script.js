@@ -31,11 +31,25 @@ resultContainer.id = 'answer';
 resultContainer.innerHTML = 'Escolha uma cor';
 content.appendChild(resultContainer);
 
+const scoreContent = document.createElement('div');
+scoreContent.id = 'score';
+scoreContent.innerHTML = 0;
+
+textColor.insertAdjacentElement('beforebegin', scoreContent);
+
+function renderScore(result) {
+  const score = scoreContent.innerHTML;
+  if (result === 'Acertou!') {
+    scoreContent.innerHTML = parseInt(score, 10) + 3;
+  }
+}
+
 function checkColor(event) {
   const attempt = event.target.style.backgroundColor;
   const response = `rgb${textColor.innerHTML}`;
   const result = response === attempt ? 'Acertou!' : 'Errou! Tente novamente!';
   resultContainer.innerHTML = result;
+  renderScore(result);
 }
 
 function generateBallColor() {
@@ -63,7 +77,7 @@ function renderBallColors(qtd) {
 
 const btnReset = document.createElement('button');
 btnReset.id = 'reset-game';
-btnReset.innerHTML = 'Resetar Jogo/Cores';
+btnReset.innerHTML = 'Resetar Cores';
 
 function resetGame() {
   colorContainer.innerHTML = '';
@@ -72,7 +86,6 @@ function resetGame() {
 }
 
 btnReset.addEventListener('click', resetGame);
-
 content.appendChild(btnReset);
 
 renderBallColors(6);
