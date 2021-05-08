@@ -1,12 +1,56 @@
+html {
+  height: 100%;
+}
+
 body {
+  margin: 1px;
   text-align: center;
+  background-image: linear-gradient(to bottom right, rgb(47, 193, 140), green);
+  background-repeat: no-repeat;
+  font-family: 'Press Start 2P';
+}
+
+h1 {
+  margin-bottom: 40px;
+}
+
+#score-place {
+  margin-bottom: 10px;
+}
+
+#score {
+  display: inline-block;
+}
+
+#colors {
+  padding: 10px;
 }
 
 .ball {
-  width: 50px;
-  height: 50px;
-  border: 1px solid black;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
+  border: 2px solid black;
   display: inline-block;
   margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+
+.ball:hover {
+  cursor: pointer;
+  width: 63px;
+  height: 63px;
+}
+
+button {
+  font-family: 'Press Start 2P', cursive;
+  padding: 15px;
+  border: 4px outset gray;
+  background-color: whitesmoke;
+}
+
+button:hover {
+  font-size: large;
+  cursor: pointer;
 }

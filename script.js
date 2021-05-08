@@ -1,7 +1,7 @@
 function generateColor() {
-  const rgbNumber1 = Math.trunc((Math.random() * 1000));
-  const rgbNumber2 = Math.trunc((Math.random() * 100));
-  const rgbNumber3 = Math.trunc((Math.random() * 100));
+  const rgbNumber1 = (Math.random() * 1000);
+  const rgbNumber2 = (Math.random() * 10);
+  const rgbNumber3 = (Math.random() * 100);
   const colorGenerated = `(${rgbNumber1}, ${rgbNumber2}, ${rgbNumber3})`;
   return colorGenerated;
 }
@@ -15,6 +15,13 @@ function createColors() {
   }
 }
 
+function randomCorrect(colors) {
+  const random = Math.floor(Math.random() * colors.length);
+  const color = colors[random];
+  color.classList.add('correct');
+  color.style.backgroundColor = `rgb${generateColor()}`;
+}
+
 function putColors() {
   const colors = document.querySelectorAll('.ball');
   const correctColor = document.querySelector('.correct');
@@ -22,14 +29,10 @@ function putColors() {
     colors[index].style.backgroundColor = `rgb${generateColor()}`;
   }
   if (correctColor === null) {
-    const random = Math.floor(Math.random() * colors.length);
-    colors[random].classList.add('correct');
-    colors[random].style.backgroundColor = `rgb${generateColor()}`;
+    randomCorrect(colors);
   } else {
     correctColor.classList.remove('correct');
-    const random = Math.floor(Math.random() * colors.length);
-    colors[random].classList.add('correct');
-    colors[random].style.backgroundColor = `rgb${generateColor()}`;
+    randomCorrect(colors);
   }
 }
 
@@ -40,9 +43,18 @@ function sortColor() {
   rgbColor.innerText = correctColor.substr(3);
 }
 
+function changeScore() {
+  const score = document.getElementById('score');
+  score.innerHTML = 0;
+}
+
 function verifyGuessClick(element) {
+  const score = document.getElementById('score');
   const answer = document.getElementById('answer');
+  let scoreNumber = Number(score.innerHTML);
   if (element.target.classList.contains('correct')) {
+    scoreNumber += 3;
+    score.innerHTML = scoreNumber;
     answer.innerHTML = 'Acertou!';
   } else {
     answer.innerHTML = 'Errou! Tente novamente!';
@@ -75,4 +87,5 @@ window.onload = () => {
   sortColor();
   verifyGuess();
   resetGame();
+  changeScore();
 };
