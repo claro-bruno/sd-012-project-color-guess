@@ -26,22 +26,38 @@ const colorContainer = document.createElement('div');
 colorContainer.className = 'color-container';
 content.appendChild(colorContainer);
 
+const resultContainer = document.createElement('div');
+resultContainer.id = 'answer';
+resultContainer.innerHTML = 'Escolha uma cor';
+content.appendChild(resultContainer);
+
+function checkColor(event) {
+  const attempt = event.target.style.backgroundColor;
+  const response = `rgb${textColor.innerHTML}`;
+  const result = response === attempt ? 'Acertou!' : 'Errou! Tente novamente!';
+  resultContainer.innerHTML = result;
+}
+
 function generateBallColor() {
   const ballColor = document.createElement('div');
   ballColor.className = 'ball';
   ballColor.style.backgroundColor = `rgb${generateRGB()}`;
+  ballColor.addEventListener('click', checkColor);
+
   return ballColor;
 }
 
 function renderBallColors(qtd) {
   const arrayRGB = [];
   const colorIndex = randomNumber(0, qtd);
+
   for (let index = 0; index < qtd; index += 1) {
     const ballColor = generateBallColor();
     const color = ballColor.style.backgroundColor.replace(/rgb/g, '');
     arrayRGB.push(color);
     colorContainer.appendChild(ballColor);
   }
+
   textColor.innerHTML = arrayRGB[colorIndex];
 }
 
