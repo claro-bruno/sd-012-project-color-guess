@@ -1,7 +1,7 @@
 function createRandomColor() {
-  const r = parseInt((Math.random() * 256), 10);
-  const g = parseInt((Math.random() * 256), 10);
-  const b = parseInt((Math.random() * 256), 10);
+  const r = parseInt(Math.random() * 256, 10);
+  const g = parseInt(Math.random() * 256, 10);
+  const b = parseInt(Math.random() * 256, 10);
   const rgb = `(${r}, ${g}, ${b})`;
   return rgb;
 }
@@ -15,7 +15,7 @@ colorRamdomText();
 function paintRandomColor() {
   const ball = document.querySelectorAll('.ball');
   const rgbColor = document.querySelector('#rgb-color');
-  const randomPosition = parseInt((Math.random() * 6), 10);
+  const randomPosition = parseInt(Math.random() * 6, 10);
   for (let index = 0; index < ball.length; index += 1) {
     if (randomPosition === index) {
       ball[index].style.backgroundColor = `rgb${rgbColor.innerHTML}`;
@@ -25,3 +25,29 @@ function paintRandomColor() {
   }
 }
 paintRandomColor();
+
+function selectedBall() {
+  const ball = document.querySelectorAll('.ball');
+  for (let index = 0; index < ball.length; index += 1) {
+    ball[index].addEventListener('click', (event) => {
+      const selectBall = document.querySelector('.selected');
+      if (selectBall !== null) {
+        selectBall.classList.remove('selected');
+      }
+      event.target.classList.add('selected');
+      verifyAnswer();
+    });
+  }
+}
+selectedBall();
+
+function verifyAnswer() {
+  const answer = document.querySelector('#answer');
+  const rgbColor = document.querySelector('#rgb-color');
+  const selectBall = document.querySelector('.selected');
+  if (selectBall.style.backgroundColor === `rgb${rgbColor.innerHTML}`) {
+    answer.innerHTML = 'Acertou!';
+  } else {
+    answer.innerHTML = 'Errou! Tente novamente!';
+  }
+}

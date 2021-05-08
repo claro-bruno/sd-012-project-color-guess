@@ -6,3 +6,6 @@
     border: black solid 1px;
     border-radius: 50%;
 }
+.selected {
+    border: blue solid 2px;    
+}
