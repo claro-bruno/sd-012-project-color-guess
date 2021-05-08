@@ -1,3 +1,5 @@
+const rgbColor = document.querySelector('#rgb-color');
+
 function createRandomColor() {
   const r = parseInt(Math.random() * 256, 10);
   const g = parseInt(Math.random() * 256, 10);
@@ -7,14 +9,12 @@ function createRandomColor() {
 }
 
 function colorRamdomText() {
-  const rgbColor = document.querySelector('#rgb-color');
   rgbColor.innerHTML = createRandomColor();
 }
 colorRamdomText();
 
 function paintRandomColor() {
   const ball = document.querySelectorAll('.ball');
-  const rgbColor = document.querySelector('#rgb-color');
   const randomPosition = parseInt(Math.random() * 6, 10);
   for (let index = 0; index < ball.length; index += 1) {
     if (randomPosition === index) {
@@ -33,7 +33,6 @@ function scoreCount() {
 
 function verifyAnswer() {
   const answer = document.querySelector('#answer');
-  const rgbColor = document.querySelector('#rgb-color');
   const selectBall = document.querySelector('.selected');
   if (selectBall.style.backgroundColor === `rgb${rgbColor.innerHTML}`) {
     answer.innerHTML = 'Acertou!';
