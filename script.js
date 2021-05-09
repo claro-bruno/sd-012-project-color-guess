@@ -48,7 +48,17 @@ function answerVerify() {
         count -= 1;
       }
       score.innerHTML = 'Placar: ' + count;
+      localStorage.setItem('score', count);
     })
   }
 }
 answerVerify();
+
+const reset = document.getElementById('reset-game');
+reset.addEventListener('click', () => {
+  document.location.reload();
+})
+
+window.onload = () => {
+  score.innerHTML = 'Placar: ' + localStorage.getItem('score');
+}
