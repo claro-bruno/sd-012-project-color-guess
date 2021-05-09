@@ -40,6 +40,26 @@ function addListenerColorBalls() {
   }
 }
 
+function resetGame() {
+  removeDivs();
+  colors = createColorOptions(numberOfColors);
+  randomIndex = parseInt(Math.random() * numberOfColors);
+  randomColor = colors[randomIndex];
+  getCorrectColorP = document.getElementById('rgb-color');
+  getCorrectColorP.innerHTML = randomColor.replace('rgb','');
+  const getReturnText = document.getElementById('answer');
+  getReturnText.innerHTML = 'Escolha uma cor';
+  addListenerColorBalls()
+}
+
+function removeDivs() {
+  const getColorOptions = document.getElementById('color-options');
+  console.log(getColorOptions, getColorOptions.firstElementChild);
+  for (let index = 0; index < numberOfColors; index += 1) {
+    getColorOptions.removeChild(getColorOptions.firstElementChild);
+  }
+}
+
 function returnText() {
   getAnswerBall = document.querySelector('.answer-ball');
   const getReturnText = document.getElementById('answer');
@@ -52,11 +72,16 @@ function returnText() {
 }
 
 const numberOfColors = 6;
-const colors = createColorOptions(numberOfColors);
-const randomIndex = parseInt(Math.random() * numberOfColors);
-const randomColor = colors[randomIndex];
-const getCorrectColorP = document.getElementById('rgb-color');
+let colors = createColorOptions(numberOfColors);
+let randomIndex = parseInt(Math.random() * numberOfColors);
+let randomColor = colors[randomIndex];
+let getCorrectColorP = document.getElementById('rgb-color');
 getCorrectColorP.innerHTML = randomColor.replace('rgb','');
 let getAnswerBall = document.querySelector('.answer-ball');
+
+const getResetButton = document.getElementById('reset-game');
+getResetButton.addEventListener('click', (event) => {
+  resetGame();
+})
 
 addListenerColorBalls();
