@@ -1,13 +1,13 @@
 function randomColors() {
-  const colorRed = parseInt((Math.random() * 255 + 1),10);
-  const colorGreen = parseInt((Math.random() * 255 + 1),10);
-  const colorBlue = parseInt((Math.random() * 255 + 1),10);
+  const colorRed = parseInt((Math.random() * 255 + 1), 10);
+  const colorGreen = parseInt((Math.random() * 255 + 1), 10);
+  const colorBlue = parseInt((Math.random() * 255 + 1), 10);
   const colorNumbers = `(${colorRed}, ${colorGreen}, ${colorBlue})`;
-  const color = 'rgb' + colorNumbers;
+  const color = `rgb${colorNumbers}`;
   return {
     colorNumbers,
-    color
-  }
+    color,
+  };
 }
 
 function createColorOptions(numberOfColors) {
@@ -21,7 +21,7 @@ function createColorOptions(numberOfColors) {
     getColorOptions.appendChild(createColorOption);
     colors.push(color);
   }
-  return colors
+  return colors;
 }
 
 function addListenerColorBalls() {
@@ -53,8 +53,7 @@ function resetGame() {
 }
 
 function removeDivs() {
-  const getColorOptions = document.getElementById('color-options');
-  console.log(getColorOptions, getColorOptions.firstElementChild);
+  const getColorOptions = document.querySelector('#color-options');
   for (let index = 0; index < numberOfColors; index += 1) {
     getColorOptions.removeChild(getColorOptions.firstElementChild);
   }
@@ -64,8 +63,10 @@ function returnText() {
   getAnswerBall = document.querySelector('.answer-ball');
   const getReturnText = document.getElementById('answer');
   const answerColor = getAnswerBall.style.backgroundColor;
+  const score = document.getElementById('score');
   if (answerColor === randomColor) {
     getReturnText.innerHTML = 'Acertou!';
+    score.innerHTML = `${parseInt(score.innerHTML) + 3}`;
   } else {
     getReturnText.innerHTML = 'Errou! Tente novamente!';
   }
