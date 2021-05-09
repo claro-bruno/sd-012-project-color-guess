@@ -23,3 +23,12 @@ function insertRightColor() {
   balls[Math.ceil(Math.random() * 5)].style.backgroundColor = ('rgb' + rgbText.innerHTML);
 }
 insertRightColor();
+
+function answerClass() {
+  for (let index = 0; index < balls.length; index += 1) {
+    if (balls[index].style.backgroundColor === ('rgb' + rgbText.innerHTML)) {
+      balls[index].className = 'ball answer';
+    }
+  }
+}
+answerClass();
