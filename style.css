@@ -9,6 +9,14 @@ header {
   text-align: center;
 }
 
+main {
+  background-color: white;
+  margin: auto;
+  width: 500px;
+  border-radius: 25px;
+  padding: 1px;
+}
+
 footer {
   padding: 1px;
   text-align: center;
