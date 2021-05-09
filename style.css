@@ -10,3 +10,12 @@
 body {
   text-align: center;
 }
+
+#score {
+  display: inline-block;
+  margin-top: 0;
+}
+
+#rgb-color {
+  margin-bottom: 0;
+}

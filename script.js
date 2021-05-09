@@ -2,6 +2,7 @@ const allBalls = document.querySelectorAll('.ball');
 const colorGuess = document.querySelector('#rgb-color');
 const answer = document.querySelector('#answer');
 const nextColor = document.querySelector('#reset-game');
+const score = document.querySelector('#score');
 
 function generateColor() {
   for (let i = 0; i < allBalls.length; i += 1) {
@@ -21,11 +22,19 @@ function generateGuessColor() {
 
 generateGuessColor();
 
+function reset() {
+  generateColor();
+  generateGuessColor();
+  answer.innerHTML = 'Escolha uma cor';
+}
+
 function changeAnswer(event) {
   if (event.target.style.backgroundColor.substr(3) === colorGuess.innerHTML) {
     answer.innerHTML = 'Acertou!';
+    score.innerHTML = parseInt(score.innerHTML, 10) + 3;
   } else {
     answer.innerHTML = 'Errou! Tente novamente!';
+    score.innerHTML = parseInt(score.innerHTML, 10) - 1;
   }
 }
 
@@ -36,11 +45,5 @@ document.addEventListener('click', (event) => {
     }
   }
 });
-
-function reset() {
-  generateColor();
-  generateGuessColor();
-  answer.innerHTML = 'Escolha uma cor';
-}
 
 nextColor.addEventListener('click', reset);
