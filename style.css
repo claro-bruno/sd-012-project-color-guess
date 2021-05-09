@@ -27,6 +27,10 @@ main {
   margin-right: 3px;
 }
 
+#reset-game {
+  margin-bottom: 15px;
+}
+
 footer {
   padding: 1px;
   text-align: center;

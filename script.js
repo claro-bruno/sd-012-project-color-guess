@@ -34,5 +34,49 @@ function setRgbToGuess() {
   colorToGuess.innerHTML = rgbCode;
 }
 
+function eventGuessColor() {
+  const colorBalls = document.querySelectorAll('.ball');
+  const colorToGuess = document.getElementById('rgb-color').innerHTML;
+  const answer = document.getElementById('answer');
+  const score = document.getElementById('score');
+
+  for (let index = 0; index < colorBalls.length; index += 1) {
+    colorBalls[index].addEventListener('click', (event) => {
+      const ballColor = event.target.style.backgroundColor.substring('rgb'.length);
+
+      if (ballColor === colorToGuess) {
+        answer.innerHTML = 'Acertou!';
+        score.innerHTML = `${Number(score.innerHTML) + 3}`;
+      } else {
+        answer.innerHTML = 'Errou! Tente novamente!';
+      }
+    });
+  }
+}
+
+function removeColorBalls() {
+  const parentElement = document.getElementById('colors-options');
+  const colorBalls = document.querySelectorAll('.ball');
+
+  for (let index = 0; index < colorBalls.length; index += 1) {
+    parentElement.removeChild(colorBalls[index]);
+  }
+}
+
+function eventResetGame() {
+  const resetButton = document.getElementById('reset-game');
+  const answer = document.getElementById('answer');
+
+  resetButton.addEventListener('click', () => {
+    removeColorBalls();
+    createColorBalls();
+    setRgbToGuess();
+    eventGuessColor();
+    answer.innerHTML = 'Escolha uma cor';
+  });
+}
+
 createColorBalls();
 setRgbToGuess();
+eventGuessColor();
+eventResetGame();
