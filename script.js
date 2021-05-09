@@ -1,17 +1,25 @@
 const rgbText = document.getElementById('rgb-color');
-
+const ballContainer = document.getElementById('ball-container');
 function colorGenerate() {
   const r = Math.ceil(Math.random() * 255);
   const g = Math.ceil(Math.random() * 255);
   const b = Math.ceil(Math.random() * 255);
   return `(${r}, ${g}, ${b})`;
 }
-rgbText.innerText = colorGenerate();
+rgbText.innerHTML = colorGenerate();
 
-for (let index = 0; index < 6; index +=1) {
-const ballContainer = document.getElementById('ball-container');
-const ball = document.createElement('div');
-ball.className = 'ball'
-ball.style.backgroundColor = ('rgb' + colorGenerate());
-ballContainer.appendChild(ball);
+function createBall() {
+  for (let index = 0; index < 6; index += 1) {
+    const ball = document.createElement('div');
+    ball.className = 'ball'
+    ball.style.backgroundColor = ('rgb' + colorGenerate());
+    ballContainer.appendChild(ball);
+  }
 }
+createBall();
+
+const balls = document.querySelectorAll('.ball');
+function insertRightColor() {
+  balls[Math.ceil(Math.random() * 5)].style.backgroundColor = ('rgb' + rgbText.innerHTML);
+}
+insertRightColor();
