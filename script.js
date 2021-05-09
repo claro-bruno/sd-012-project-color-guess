@@ -28,7 +28,7 @@ function setRgbToGuess() {
     colorOptions[index] = colorBall[index].style.backgroundColor;
   }
 
-  const randomIndex = Math.ceil(Math.random() * 6);
+  const randomIndex = Math.floor(Math.random() * 6);
   const rgbCode = colorOptions[randomIndex].substring('rgb'.length);
 
   colorToGuess.innerHTML = rgbCode;
