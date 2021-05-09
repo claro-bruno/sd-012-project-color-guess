@@ -12,6 +12,6 @@ for (let index = 0; index < 6; index +=1) {
 const ballContainer = document.getElementById('ball-container');
 const ball = document.createElement('div');
 ball.className = 'ball'
-// ball.style.backgroundColor = (rgb + colorGenerate());
+ball.style.backgroundColor = ('rgb' + colorGenerate());
 ballContainer.appendChild(ball);
 }
