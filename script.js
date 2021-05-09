@@ -6,12 +6,6 @@ function randomRgbCode() {
   return `(${redCode}, ${greenCode}, ${blueCode})`;
 }
 
-function setRgbToGuess() {
-  const colorToGuess = document.getElementById('rgb-color');
-
-  colorToGuess.innerHTML = randomRgbCode();
-}
-
 function createColorBalls() {
   const parentElement = document.getElementById('colors-options');
 
@@ -25,5 +19,20 @@ function createColorBalls() {
   }
 }
 
-setRgbToGuess();
+function setRgbToGuess() {
+  const colorToGuess = document.getElementById('rgb-color');
+  const colorBall = document.querySelectorAll('.ball');
+  const colorOptions = [];
+
+  for (let index = 0; index < colorBall.length; index += 1) {
+    colorOptions[index] = colorBall[index].style.backgroundColor;
+  }
+
+  const randomIndex = Math.ceil(Math.random() * 6);
+  const rgbCode = colorOptions[randomIndex].substring('rgb'.length);
+
+  colorToGuess.innerHTML = rgbCode;
+}
+
 createColorBalls();
+setRgbToGuess();
