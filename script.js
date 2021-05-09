@@ -32,3 +32,17 @@ function answerClass() {
   }
 }
 answerClass();
+
+function answerVerify() {
+  const textAnswer = document.getElementById('answer');
+  for (let index = 0; index < balls.length; index += 1) {
+    balls[index].addEventListener('click', () => {
+      if (balls[index].classList.contains('answer')) {
+        textAnswer.innerHTML = 'Acertou!';
+      } else {
+        textAnswer.innerHTML = 'Errou! Tente novamente!';
+      }
+    })
+  }
+}
+answerVerify();
