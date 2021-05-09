@@ -12,4 +12,18 @@ function setRgbToGuess() {
   colorToGuess.innerHTML = randomRgbCode();
 }
 
+function createColorBalls() {
+  const parentElement = document.getElementById('colors-options');
+
+  for (let index = 0; index < 6; index += 1) {
+    const colorBall = document.createElement('div');
+
+    colorBall.className = 'ball';
+    colorBall.style.backgroundColor = `rgb${randomRgbCode()}`;
+
+    parentElement.appendChild(colorBall);
+  }
+}
+
 setRgbToGuess();
+createColorBalls();
