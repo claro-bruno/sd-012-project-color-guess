@@ -24,19 +24,20 @@ function generateRGB() {
 
 const colorContainer = document.createElement('div');
 colorContainer.className = 'color-container';
-content.appendChild(colorContainer);
 
 const resultContainer = document.createElement('div');
 resultContainer.id = 'answer';
 resultContainer.innerHTML = 'Escolha uma cor';
+
 content.appendChild(resultContainer);
+content.appendChild(colorContainer);
 
 const scoreContainer = document.createElement('div');
 scoreContainer.className = 'score-container';
 textColor.insertAdjacentElement('beforebegin', scoreContainer);
 
 const scoreText = document.createElement('p');
-scoreText.innerHTML = 'Score:';
+scoreText.innerHTML = 'SCORE:';
 scoreContainer.appendChild(scoreText);
 
 const scoreContent = document.createElement('p');
@@ -45,30 +46,25 @@ scoreContent.innerHTML = 0;
 scoreContainer.appendChild(scoreContent);
 
 const recordContainer = document.createElement('div');
-recordContainer.className = 'record-container';
-scoreContainer.insertAdjacentElement('beforebegin', recordContainer);
+scoreContainer.appendChild(recordContainer);
 
 let record = 0;
-let recordDate = new Date().toLocaleString();
 let difficulty = 6;
 let checkGame = 1;
 
 function renderRecord() {
-  recordContainer.innerHTML = `Data: ${recordDate} Record: ${record}`;
+  recordContainer.innerHTML = `RECORD: ${record}`;
 }
 
 function saveRecord() {
-  const recordRegister = { date: new Date().toLocaleString(), record };
-  const recordJson = JSON.stringify(recordRegister);
-  localStorage.setItem('color-guess', recordJson);
+  const recordRegister = record;
+  localStorage.setItem('color-guess', recordRegister);
 }
 
 function upDateRecord() {
-  const recordJson = localStorage.getItem('color-guess');
-  if (!recordJson) return renderRecord();
-  const recordRegister = JSON.parse(recordJson);
-  record = recordRegister.record;
-  recordDate = recordRegister.date;
+  const recordRegister = localStorage.getItem('color-guess');
+  if (!recordRegister) return renderRecord();
+  record = recordRegister;
   renderRecord();
 }
 
@@ -123,7 +119,7 @@ function renderBallColors(qtd) {
 }
 
 function createBtn(text, id) {
-  const btn = document.createElement('btn');
+  const btn = document.createElement('button');
   btn.className = 'btn';
   btn.id = id;
   btn.innerHTML = text;
@@ -149,6 +145,9 @@ btnContainer.appendChild(btnReset);
 const btnDifficulty = createBtn('Aumentar Dificuldade', 'btn-difficulty');
 
 function increaseDifficulty() {
+  if (difficulty === 10) {
+    return alert('duficuladade máxima atingida');
+  }
   difficulty += 1;
   resetGame();
 }
