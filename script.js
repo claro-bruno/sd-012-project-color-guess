@@ -1,5 +1,6 @@
 const rgbText = document.getElementById('rgb-color');
 const ballContainer = document.getElementById('ball-container');
+const score = document.getElementById('score');
 function colorGenerate() {
   const r = Math.ceil(Math.random() * 255);
   const g = Math.ceil(Math.random() * 255);
@@ -33,15 +34,20 @@ function answerClass() {
 }
 answerClass();
 
+let count = 0;
+score.innerHTML = 'Placar: ' + count;
 function answerVerify() {
   const textAnswer = document.getElementById('answer');
   for (let index = 0; index < balls.length; index += 1) {
     balls[index].addEventListener('click', () => {
       if (balls[index].classList.contains('answer')) {
         textAnswer.innerHTML = 'Acertou!';
+        count += 3;
       } else {
         textAnswer.innerHTML = 'Errou! Tente novamente!';
+        count -= 1;
       }
+      score.innerHTML = 'Placar: ' + count;
     })
   }
 }
