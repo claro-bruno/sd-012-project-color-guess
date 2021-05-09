@@ -1,3 +1,7 @@
+p {
+  display: inline-block;
+}
+
 .ball {
   width: 20px;
   height: 20px;
