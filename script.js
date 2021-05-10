@@ -1,10 +1,10 @@
 const rgbText = document.getElementById('rgb-color');
 const ballContainer = document.getElementById('ball-container');
-const balls = document.querySelectorAll('.ball');
+
 const score = document.getElementById('score');
 const textAnswer = document.getElementById('answer');
 let count = 0;
-score.innerHTML = 'Placar: ' + count;
+score.innerHTML = `Placar: ${count}`;
 
 function colorGenerate() {
   const r = Math.ceil(Math.random() * 255);
@@ -26,21 +26,21 @@ createBall();
 function colorize() {
   const balls = document.querySelectorAll('.ball');
   for (let index = 0; index < balls.length; index += 1) {
-  balls[index].style.backgroundColor = ('rgb' + colorGenerate());
+    balls[index].style.backgroundColor = (`rgb${colorGenerate()}`);
   }
 }
 colorize();
 
 function insertRightColor() {
   const balls = document.querySelectorAll('.ball');
-  balls[Math.ceil(Math.random() * 5)].style.backgroundColor = ('rgb' + rgbText.innerHTML);
+  balls[Math.ceil(Math.random() * 5)].style.backgroundColor = (`rgb${rgbText.innerHTML}`);
 }
 insertRightColor();
 
 function answerClass() {
   const balls = document.querySelectorAll('.ball');
   for (let index = 0; index < balls.length; index += 1) {
-    if (balls[index].style.backgroundColor === ('rgb' + rgbText.innerHTML)) {
+    if (balls[index].style.backgroundColor === (`rgb${rgbText.innerHTML}`)) {
       balls[index].className = 'ball answer';
     } else {
       balls[index].className = 'ball';
@@ -60,20 +60,20 @@ function answerVerify() {
         textAnswer.innerHTML = 'Errou! Tente novamente!';
         count -= 1;
       }
-      score.innerHTML = 'Placar: ' + count;
+      score.innerHTML = `Placar: ${count}`;
     });
   }
 }
 answerVerify();
 
 function resetColors() {
-const reset = document.getElementById('reset-game');
-reset.addEventListener('click', () => {
-  colorize();
-  insertRightColor();
-  answerClass();
-  textAnswer.innerHTML = 'Escolha uma cor'
-  rgbText.innerHTML = colorGenerate();
+  const reset = document.getElementById('reset-game');
+  reset.addEventListener('click', () => {
+    colorize();
+    insertRightColor();
+    answerClass();
+    textAnswer.innerHTML = 'Escolha uma cor';
+    rgbText.innerHTML = colorGenerate();
   });
 }
 
