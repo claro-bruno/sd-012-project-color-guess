@@ -3,8 +3,7 @@ const ballContainer = document.getElementById('ball-container');
 
 const score = document.getElementById('score');
 const textAnswer = document.getElementById('answer');
-let count = 0;
-score.innerHTML = `Placar: ${count}`;
+score.innerHTML = 0;
 
 function colorGenerate() {
   const r = Math.ceil(Math.random() * 255);
@@ -51,6 +50,7 @@ answerClass();
 
 function answerVerify() {
   const balls = document.querySelectorAll('.ball');
+  let count = 0;
   for (let index = 0; index < balls.length; index += 1) {
     balls[index].addEventListener('click', () => {
       if (balls[index].classList.contains('answer')) {
@@ -60,7 +60,7 @@ function answerVerify() {
         textAnswer.innerHTML = 'Errou! Tente novamente!';
         count -= 1;
       }
-      score.innerHTML = `Placar: ${count}`;
+      score.innerHTML = count;
     });
   }
 }
