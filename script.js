@@ -39,13 +39,7 @@ window.onload = startGame;
 
 // Placar
 function putScore(status) {
-  if (!status) {
-    if (parseInt(sessionStorage.getItem('score'), 10) !== 0) {
-      sessionStorage.setItem('score', parseInt(sessionStorage.getItem('score') - 1, 10));
-    }
-  } else {
     sessionStorage.setItem('score', parseInt(sessionStorage.getItem('score'), 10) + 3);
-  }
 }
 
 // Seleção da cor , menssagem de acerto e erro, e placar.
