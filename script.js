@@ -16,10 +16,10 @@ rgbText.innerHTML = colorGenerate();
 function createBall() {
   for (let index = 0; index < 6; index += 1) {
     const ballCreate = document.createElement('div');
-    ballCreate.className = 'ball'
+    ballCreate.className = 'ball';
     ballContainer.appendChild(ballCreate);
-    }
   }
+}
 createBall();
 
 function colorize() {
@@ -75,6 +75,7 @@ reset.addEventListener('click', () => {
   insertRightColor();
   answerClass();
   textAnswer.innerHTML = 'Escolha uma cor'
+  rgbText.innerHTML = colorGenerate();
   });
 }
 
