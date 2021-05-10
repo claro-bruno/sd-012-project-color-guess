@@ -37,20 +37,14 @@ function startGame() {
 window.onload = sessionStorage.setItem('score', 0);
 window.onload = startGame;
 
-// Placar
-function putScore(status) {
-    sessionStorage.setItem('score', parseInt(sessionStorage.getItem('score'), 10) + 3);
-}
-
 // Seleção da cor , menssagem de acerto e erro, e placar.
 function selectAnswer(event) {
   if (event.target.tagName !== 'SECTION' && mensagePlace.innerText === 'Escolha uma cor') {
     if (event.target.style.backgroundColor === `rgb${colorTextplace.innerText}`) {
       mensagePlace.innerText = 'Acertou!';
-      putScore(true);
+      sessionStorage.setItem('score', parseInt(sessionStorage.getItem('score'), 10) + 3);
     } else {
       mensagePlace.innerText = 'Errou! Tente novamente!';
-      putScore(false);
     }
   }
   scoreText.innerText = `Placar: ${sessionStorage.getItem('score')}`;
