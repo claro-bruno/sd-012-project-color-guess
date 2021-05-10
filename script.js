@@ -3,7 +3,6 @@ const ballContainer = document.getElementById('ball-container');
 
 const score = document.getElementById('score');
 const textAnswer = document.getElementById('answer');
-score.innerHTML = 0;
 
 function colorGenerate() {
   const r = Math.ceil(Math.random() * 255);
@@ -32,7 +31,7 @@ colorize();
 
 function insertRightColor() {
   const balls = document.querySelectorAll('.ball');
-  balls[Math.ceil(Math.random() * 5)].style.backgroundColor = (`rgb${rgbText.innerHTML}`);
+  balls[Math.floor(Math.random() * 6)].style.backgroundColor = (`rgb${rgbText.innerHTML}`);
 }
 insertRightColor();
 
@@ -48,20 +47,16 @@ function answerClass() {
 }
 answerClass();
 
-function scoreCount() {
-  score.innerHTML = parseInt(score.innerHTML, 10) + 3;
-}
-
 function answerVerify() {
   const balls = document.querySelectorAll('.ball');
-  let count = 0;
   for (let index = 0; index < balls.length; index += 1) {
     balls[index].addEventListener('click', () => {
       if (balls[index].classList.contains('answer')) {
         textAnswer.innerHTML = 'Acertou!';
-        scoreCount();
+        score.innerHTML = parseInt(score.innerHTML, 10) + 3;
       } else {
         textAnswer.innerHTML = 'Errou! Tente novamente!';
+        score.innerHTML = parseInt(score.innerHTML, 10) - 1;
       }
     });
   }
