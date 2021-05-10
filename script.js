@@ -1,6 +1,10 @@
 const rgbText = document.getElementById('rgb-color');
 const ballContainer = document.getElementById('ball-container');
+const balls = document.querySelectorAll('.ball');
 const score = document.getElementById('score');
+let count = 0;
+score.innerHTML = 'Placar: ' + count;
+
 function colorGenerate() {
   const r = Math.ceil(Math.random() * 255);
   const g = Math.ceil(Math.random() * 255);
@@ -11,32 +15,41 @@ rgbText.innerHTML = colorGenerate();
 
 function createBall() {
   for (let index = 0; index < 6; index += 1) {
-    const ball = document.createElement('div');
-    ball.className = 'ball'
-    ball.style.backgroundColor = ('rgb' + colorGenerate());
-    ballContainer.appendChild(ball);
+    const ballCreate = document.createElement('div');
+    ballCreate.className = 'ball'
+    ballContainer.appendChild(ballCreate);
+    }
   }
-}
 createBall();
 
-const balls = document.querySelectorAll('.ball');
+function colorize() {
+  const balls = document.querySelectorAll('.ball');
+  for (const item of balls){
+  item.style.backgroundColor = ('rgb' + colorGenerate());
+  }
+}
+colorize();
+
 function insertRightColor() {
+  const balls = document.querySelectorAll('.ball');
   balls[Math.ceil(Math.random() * 5)].style.backgroundColor = ('rgb' + rgbText.innerHTML);
 }
 insertRightColor();
 
 function answerClass() {
+  const balls = document.querySelectorAll('.ball');
   for (let index = 0; index < balls.length; index += 1) {
     if (balls[index].style.backgroundColor === ('rgb' + rgbText.innerHTML)) {
       balls[index].className = 'ball answer';
+    } else {
+      balls[index].className = 'ball';
     }
   }
 }
 answerClass();
 
-let count = 0;
-score.innerHTML = 'Placar: ' + count;
 function answerVerify() {
+  const balls = document.querySelectorAll('.ball');
   const textAnswer = document.getElementById('answer');
   for (let index = 0; index < balls.length; index += 1) {
     balls[index].addEventListener('click', () => {
@@ -49,16 +62,20 @@ function answerVerify() {
       }
       score.innerHTML = 'Placar: ' + count;
       localStorage.setItem('score', count);
-    })
+    });
   }
 }
 answerVerify();
 
+function resetColors() {
+const textAnswer = document.getElementById('answer');
 const reset = document.getElementById('reset-game');
 reset.addEventListener('click', () => {
-  document.location.reload();
-})
-
-window.onload = () => {
-  score.innerHTML = 'Placar: ' + localStorage.getItem('score');
+  colorize();
+  insertRightColor();
+  answerClass();
+  textAnswer.innerHTML = 'Escolha uma cor'
+  });
 }
+
+resetColors();
