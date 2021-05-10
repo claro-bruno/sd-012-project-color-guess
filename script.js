@@ -48,6 +48,10 @@ function answerClass() {
 }
 answerClass();
 
+function scoreCount() {
+  score.innerHTML = parseInt(score.innerHTML, 10) + 3;
+}
+
 function answerVerify() {
   const balls = document.querySelectorAll('.ball');
   let count = 0;
@@ -55,12 +59,10 @@ function answerVerify() {
     balls[index].addEventListener('click', () => {
       if (balls[index].classList.contains('answer')) {
         textAnswer.innerHTML = 'Acertou!';
-        count += 3;
+        scoreCount();
       } else {
         textAnswer.innerHTML = 'Errou! Tente novamente!';
-        count -= 1;
       }
-      score.innerHTML = count;
     });
   }
 }
