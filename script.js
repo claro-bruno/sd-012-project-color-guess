@@ -2,6 +2,7 @@ const rgbText = document.getElementById('rgb-color');
 const ballContainer = document.getElementById('ball-container');
 const balls = document.querySelectorAll('.ball');
 const score = document.getElementById('score');
+const textAnswer = document.getElementById('answer');
 let count = 0;
 score.innerHTML = 'Placar: ' + count;
 
@@ -50,7 +51,6 @@ answerClass();
 
 function answerVerify() {
   const balls = document.querySelectorAll('.ball');
-  const textAnswer = document.getElementById('answer');
   for (let index = 0; index < balls.length; index += 1) {
     balls[index].addEventListener('click', () => {
       if (balls[index].classList.contains('answer')) {
@@ -58,7 +58,7 @@ function answerVerify() {
         count += 3;
       } else {
         textAnswer.innerHTML = 'Errou! Tente novamente!';
-        count -= 1;
+        // count -= 1;
       }
       score.innerHTML = 'Placar: ' + count;
       localStorage.setItem('score', count);
@@ -68,7 +68,6 @@ function answerVerify() {
 answerVerify();
 
 function resetColors() {
-const textAnswer = document.getElementById('answer');
 const reset = document.getElementById('reset-game');
 reset.addEventListener('click', () => {
   colorize();
