@@ -2,6 +2,7 @@ const colorTextplace = document.getElementById('rgb-color');
 const ballColorsplace = document.getElementById('colorsPlace');
 const mensagePlace = document.getElementById('answer');
 const resetBtn = document.getElementById('reset-game');
+const scoreText = document.getElementById('score');
 
 function createRandomcolor() {
   const colorNum = [];
@@ -30,20 +31,35 @@ function startGame() {
     ballColorsplace.appendChild(colorelmnt);
   }
   mensagePlace.innerText = 'Escolha uma cor';
+  scoreText.innerText = `Placar: ${sessionStorage.getItem('score')}`;
 }
 
+window.onload = sessionStorage.setItem('score', 0);
 window.onload = startGame;
 
-//
+// Placar
+function putScore(status) {
+  if (!status) {
+    if (parseInt(sessionStorage.getItem('score'), 10) !== 0) {
+      sessionStorage.setItem('score', parseInt(sessionStorage.getItem('score') - 1, 10));
+    }
+  } else {
+    sessionStorage.setItem('score', parseInt(sessionStorage.getItem('score'), 10) + 3);
+  }
+}
+
+// Seleção da cor , menssagem de acerto e erro, e placar.
 function selectAnswer(event) {
-  if (event.target.tagName !== 'SECTION') {
-    console.log(event.target.style.backgroundColor, `rgb${colorTextplace.innerText}`);
+  if (event.target.tagName !== 'SECTION' && mensagePlace.innerText === 'Escolha uma cor') {
     if (event.target.style.backgroundColor === `rgb${colorTextplace.innerText}`) {
       mensagePlace.innerText = 'Acertou!';
+      putScore(true);
     } else {
       mensagePlace.innerText = 'Errou! Tente novamente!';
+      putScore(false);
     }
   }
+  scoreText.innerText = `Placar: ${sessionStorage.getItem('score')}`;
 }
 
 ballColorsplace.addEventListener('click', selectAnswer);
