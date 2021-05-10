@@ -25,8 +25,8 @@ createBall();
 
 function colorize() {
   const balls = document.querySelectorAll('.ball');
-  for (const item of balls){
-  item.style.backgroundColor = ('rgb' + colorGenerate());
+  for (let index = 0; index < balls.length; index += 1) {
+  balls[index].style.backgroundColor = ('rgb' + colorGenerate());
   }
 }
 colorize();
@@ -58,10 +58,9 @@ function answerVerify() {
         count += 3;
       } else {
         textAnswer.innerHTML = 'Errou! Tente novamente!';
-        // count -= 1;
+        count -= 1;
       }
       score.innerHTML = 'Placar: ' + count;
-      localStorage.setItem('score', count);
     });
   }
 }
