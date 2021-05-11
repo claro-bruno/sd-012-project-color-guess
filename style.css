@@ -26,11 +26,10 @@ body {
   padding: 40px;
 }
 
-.color {
-    border: solid black 1px;
+.ball {
+    border: solid #810000 5px;
     height: 100px;
     width: 100px;
-    background-color: transparent;
     padding: 10px;
     border-radius: 50px;
   }

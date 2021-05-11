@@ -11,7 +11,7 @@ function gerarCor() {
   function gerarPaleta() {
     for (let i = 0; i < 6; i += 1) {
       const div = document.createElement('div');
-      div.className = 'color';
+      div.className = 'ball';
       colorPalette.appendChild(div);
     }
   }
@@ -19,9 +19,9 @@ function gerarCor() {
 
 gerarPaleta();
 
-document.getElementsByClassName('color')[0].style.backgroundColor = gerarCor();
-document.getElementsByClassName('color')[1].style.backgroundColor = gerarCor();
-document.getElementsByClassName('color')[2].style.backgroundColor = gerarCor();
-document.getElementsByClassName('color')[3].style.backgroundColor = gerarCor();
-document.getElementsByClassName('color')[4].style.backgroundColor = gerarCor();
-document.getElementsByClassName('color')[5].style.backgroundColor = gerarCor();
+document.getElementsByClassName('ball')[0].style.backgroundColor = gerarCor();
+document.getElementsByClassName('ball')[1].style.backgroundColor = gerarCor();
+document.getElementsByClassName('ball')[2].style.backgroundColor = gerarCor();
+document.getElementsByClassName('ball')[3].style.backgroundColor = gerarCor();
+document.getElementsByClassName('ball')[4].style.backgroundColor = gerarCor();
+document.getElementsByClassName('ball')[5].style.backgroundColor = gerarCor();
