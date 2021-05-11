@@ -3,6 +3,12 @@ body {
   background-color: #eeebdb;
 }
 
+h2 {
+  text-align: center;
+  color: white;
+  font-weight: 800;
+}
+
 #title {
   text-align: center;
   font-family: serif;
