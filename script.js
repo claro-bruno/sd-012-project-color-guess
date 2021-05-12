@@ -19,12 +19,9 @@ function gerarPaleta() {
 
 gerarPaleta();
 
-document.getElementsByClassName('ball')[0].style.backgroundColor = `rgb${gerarCor()}`;
-document.getElementsByClassName('ball')[1].style.backgroundColor = `rgb${gerarCor()}`;
-document.getElementsByClassName('ball')[2].style.backgroundColor = `rgb${gerarCor()}`;
-document.getElementsByClassName('ball')[3].style.backgroundColor = `rgb${gerarCor()}`;
-document.getElementsByClassName('ball')[4].style.backgroundColor = `rgb${gerarCor()}`;
-document.getElementsByClassName('ball')[5].style.backgroundColor = `rgb${gerarCor()}`;
+for (let i = 0; i < 6; i += 1){
+  document.getElementsByClassName('ball')[i].style.backgroundColor = `rgb${gerarCor()}`;;
+}
 
 function cor(){
   const rgb = document.getElementById('rgb-color')
@@ -34,3 +31,28 @@ function cor(){
 
 }
 cor()
+
+function select(event) {
+  event.target.classList.add('selected');
+}
+
+for (let i = 0; i < 6; i += 1){
+  document.getElementsByClassName('ball')[i].addEventListener('click', select);
+}
+
+
+function guess() {
+
+  if (document.getElementsByClassName('selected').length > 1){
+    const selectedColor = document.getElementsByClassName('selected').style.backgroundColor
+    if (selectedColor.replace('rgb', '') = document.getElementById('rgb-color').innerHTML){
+      document.getElementById('answer').innerHTML = 'Acertou'
+    } {
+      document.getElementById('answer').innerHTML = 'Errou! Tente novamente!'
+    }
+  } {
+    document.getElementById('answer').innerHTML = 'Escolha uma cor'
+  }
+}
+
+guess()
