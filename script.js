@@ -2,6 +2,8 @@ let rgbColor = document.querySelector('#rgb-color');
 let circleContainer = document.querySelector('#circle-container');
 let answer = document.querySelector('#answer');
 let reset = document.querySelector('#reset-game');
+let placar = document.querySelector('#score');
+let cont = 0;
 
 function iniciarJogo() {
   let r = (Math.floor(Math.random() * (255 - 0 + 1)) + 0).toString();
@@ -55,6 +57,8 @@ function resposta(event) {
   let corCorreta = 'rgb' + rgbColor.innerText;
   if (event.target.style.backgroundColor === corCorreta) {
     answer.innerText = 'Acertou!';
+    cont = cont + 3;
+    placar.innerText = 'Placar: ' + cont.toString();
   } else {
     answer.innerText = 'Errou! Tente novamente!'
   }
