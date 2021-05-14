@@ -26,7 +26,7 @@ function iniciarJogo() {
     option.style.width = '50px';
     option.style.borderRadius = '50%';
     option.style.border = '1px solid black';
-    option.style.margin = '10px'
+    option.style.margin = '10px';
     if (index === numeroResposta) {
       option.style.backgroundColor = corCorreta;
     } else {
@@ -57,10 +57,10 @@ function resposta(event) {
   let corCorreta = 'rgb' + rgbColor.innerText;
   if (event.target.style.backgroundColor === corCorreta) {
     answer.innerText = 'Acertou!';
-    cont = cont + 3;
+    cont += 3;
     placar.innerText = 'Placar: ' + cont.toString();
   } else {
-    answer.innerText = 'Errou! Tente novamente!'
+    answer.innerText = 'Errou! Tente novamente!';
   }
 }
 
