@@ -8,7 +8,7 @@
 
 #circle-container {
   text-align: center;
-  padding: 50px;
+  padding-top: 50px;
 }
 
 #answer {
@@ -17,6 +17,15 @@
 
 #button-container {
   text-align: center;
+  padding-top: 20px;
+}
+
+#reset-game {
+  background-color: green;
+  color: black;
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
 }
 
 #score {

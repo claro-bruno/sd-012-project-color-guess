@@ -1,25 +1,25 @@
-let rgbColor = document.querySelector('#rgb-color');
-let circleContainer = document.querySelector('#circle-container');
-let answer = document.querySelector('#answer');
-let reset = document.querySelector('#reset-game');
-let placar = document.querySelector('#score');
+const rgbColor = document.querySelector('#rgb-color');
+const circleContainer = document.querySelector('#circle-container');
+const answer = document.querySelector('#answer');
+const reset = document.querySelector('#reset-game');
+const placar = document.querySelector('#score');
 let cont = 0;
 
 function iniciarJogo() {
-  let r = (Math.floor(Math.random() * (255 - 0 + 1)) + 0).toString();
-  let g = (Math.floor(Math.random() * (255 - 0 + 1)) + 0).toString();
-  let b = (Math.floor(Math.random() * (255 - 0 + 1)) + 0).toString();
-  let corASerAdivinhada = '(' + r + ', ' + g + ', ' + b + ')';
-  let corCorreta = 'rgb' + corASerAdivinhada;
+  const r = (Math.floor(Math.random() * (255 - 0 + 1)) + 0).toString();
+  const g = (Math.floor(Math.random() * (255 - 0 + 1)) + 0).toString();
+  const b = (Math.floor(Math.random() * (255 - 0 + 1)) + 0).toString();
+  const corASerAdivinhada = '(' + r + ', ' + g + ', ' + b + ')';
+  const corCorreta = 'rgb' + corASerAdivinhada;
   rgbColor.innerText = corASerAdivinhada;
-  let numeroResposta = (Math.floor(Math.random() * (6 - 1 + 1)) + 1);
+  const numeroResposta = (Math.floor(Math.random() * (6 - 1 + 1)) + 1);
 
   for (let index = 1; index <= 6; index += 1) {
-    let option = document.createElement('div');
-    let red = (Math.floor(Math.random() * (255 - 0 + 1)) + 0).toString();
-    let green = (Math.floor(Math.random() * (255 - 0 + 1)) + 0).toString();
-    let blue = (Math.floor(Math.random() * (255 - 0 + 1)) + 0).toString();
-    let corOption = 'rgb(' + red + ', ' + green + ', ' + blue + ')';
+    const option = document.createElement('div');
+    const red = (Math.floor(Math.random() * (255 - 0 + 1)) + 0).toString();
+    const green = (Math.floor(Math.random() * (255 - 0 + 1)) + 0).toString();
+    const blue = (Math.floor(Math.random() * (255 - 0 + 1)) + 0).toString();
+    const corOption = 'rgb(' + red + ', ' + green + ', ' + blue + ')';
     option.style.display = 'inline-block';
     option.className = 'ball';
     option.style.height = '50px';
@@ -39,7 +39,7 @@ function iniciarJogo() {
 window.onload = iniciarJogo;
 
 function removeCirculos() {
-  let options = document.querySelectorAll('.ball');
+  const options = document.querySelectorAll('.ball');
   for (let index = 0; index < options.length; index += 1) {
     circleContainer.removeChild(options[index]);
   }
@@ -54,7 +54,7 @@ function reiniciarJogo() {
 reset.addEventListener('click', reiniciarJogo);
 
 function resposta(event) {
-  let corCorreta = 'rgb' + rgbColor.innerText;
+  const corCorreta = 'rgb' + rgbColor.innerText;
   if (event.target.style.backgroundColor === corCorreta) {
     answer.innerText = 'Acertou!';
     cont += 3;
