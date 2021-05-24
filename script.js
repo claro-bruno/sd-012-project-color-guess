@@ -66,11 +66,11 @@ answerVerify();
 function resetColors() {
   const reset = document.getElementById('reset-game');
   reset.addEventListener('click', () => {
+    rgbText.innerHTML = colorGenerate();
     colorize();
     insertRightColor();
     answerClass();
     textAnswer.innerHTML = 'Escolha uma cor';
-    rgbText.innerHTML = colorGenerate();
   });
 }
 
