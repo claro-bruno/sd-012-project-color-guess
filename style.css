@@ -1,3 +1,17 @@
-* {
-  margin: auto;
+body {
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  background-color: rgb(138, 43, 225);
+  box-sizing: border-box;
+  padding: 40px;
+}
+
+span {
+  padding: 10px;
+  background-color: rgb(50, 50, 50);
+  color: rgb(200, 200, 200);
+  font-weight: 900;
 }
