@@ -38,12 +38,13 @@ h3 {
 }
 
 .ball {
-    border: solid #eeebdb 5px;
-    height: 100px;
-    width: 100px;
-    padding: 10px;
-    border-radius: 50px;
-  }
-  .ball:hover {
-    border: solid #810000 5px;
-  }
+  border: solid #eeebdb 5px;
+  height: 100px;
+  width: 100px;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+.ball:hover {
+  border: solid #810000 5px;
+}
